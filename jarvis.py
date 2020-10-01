@@ -122,6 +122,13 @@ if __name__ == "__main__":
             chromepath = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             search = takeCommand().lower()
             wb.get(chromepath).open_new_tab(search+ '.com')
+            
+        elif "where is" in query:
+            data = query.split(" ")
+            location = data[2]
+            speak("Hold on, I will show you where " + location + " is.")
+            os.system('cmd /k "start chrome https://www.google.nl/maps/place/"'+ location)
+            # os.system("start chrome https://www.google.nl/maps/place/" + location)
 
         elif 'logout' in query:
             os.system("shutdown -1")
